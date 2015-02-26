@@ -2,10 +2,10 @@ package com.nitorac.hashdroid;
 
 import android.app.Activity;
 import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.content.ClipboardManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.nitorac.hashdroid.libs.HashCrypts;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class ResultHashFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_results_encrypt_hash, container, false);
+
         input = MainActivity.userInput;
 
         MD5Hash = HashCrypts.cryptMD5(input);
@@ -56,16 +58,18 @@ public class ResultHashFragment extends Fragment {
                                     long arg3) {
 
                 hashItems hashTypeItem = hashListAdapter.getHash(position);
-                Toast.makeText(act.getApplicationContext(), hashTypeItem.hashType,Toast.LENGTH_LONG).show();
-
                 String [] hashValueArray = {MD5Hash, SHA1Hash};
-
-                ClipboardManager myClipboard;
-                myClipboard = (ClipboardManager)act.getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData myClip;
-                String text = hashValueArray[position];
-                myClip = ClipData.newPlainText("text", text);
-                myClipboard.setPrimaryClip(myClip);
+                try {
+                    ClipboardManager myClipboard;
+                    myClipboard = (ClipboardManager) act.getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData myClip;
+                    String text = hashValueArray[position];
+                    myClip = ClipData.newPlainText("text", text);
+                    myClipboard.setPrimaryClip(myClip);
+                    Toast.makeText(act.getApplicationContext(), hashTypeItem.hashType + " " + getString(R.string.clip),Toast.LENGTH_SHORT).show();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
             }
         });
         return rootView;

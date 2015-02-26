@@ -26,5 +26,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="ClickTap">Hint : Tap on text to copy it !</string>
     <string name="emptyText">Your message cannot be empty</string>
+    <string name="clip">copied !</string>
 
 </resources>
