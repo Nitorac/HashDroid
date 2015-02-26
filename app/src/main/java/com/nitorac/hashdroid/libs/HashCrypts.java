@@ -69,4 +69,30 @@ public class HashCrypts {
         return returnText;
     }
 
+    /****************Base method SHA1****************/
+    private static String SHA224(String text)
+            throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest md;
+        md = MessageDigest.getInstance("SHA-224");
+        byte[] sha1hash = new byte[40];
+        md.update(text.getBytes("iso-8859-1"), 0, text.length());
+        sha1hash = md.digest();
+        return convertToHex(sha1hash);
+    }
+
+    /****************SHA224 public method (handle exceptions)****************/
+    public static String cryptSHA224(String text)
+    {
+        String returnText = "";
+        try{
+            returnText = SHA1(text);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            returnText = "ERROR";
+        }
+
+        return returnText;
+    }
+
 }

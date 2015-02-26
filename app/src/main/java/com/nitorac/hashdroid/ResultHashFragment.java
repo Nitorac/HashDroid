@@ -33,10 +33,13 @@ public class ResultHashFragment extends Fragment {
         String hashValue;
     }
 
-    public String[] hashTypeArray = {"MD5","SHA-1"};
+    public String[] hashTypeArray = {"MD5","SHA-1","SHA-224"};
+    String [] hashValueArrayTemp = new String [3];
+    String [] hashValueArray;
 
     public static String MD5Hash;
     public static String SHA1Hash;
+    public static String SHA224Hash;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,7 +50,10 @@ public class ResultHashFragment extends Fragment {
 
         MD5Hash = HashCrypts.cryptMD5(input);
         SHA1Hash = HashCrypts.cryptSHA1(input);
+        SHA224Hash = HashCrypts.cryptSHA224(input);
 
+        hashValueArrayTemp = new String[]{MD5Hash, SHA1Hash, SHA224Hash};
+        hashValueArray = hashValueArrayTemp;
 
         hashListAdapter = new HashAdapter();
         ListView hash = (ListView)rootView.findViewById(R.id.listView1);
@@ -59,7 +65,7 @@ public class ResultHashFragment extends Fragment {
                                     long arg3) {
 
                 hashItems hashTypeItem = hashListAdapter.getHash(position);
-                String [] hashValueArray = {MD5Hash, SHA1Hash};
+          //      String [] hashValueArray = {MD5Hash, SHA1Hash};
                 try {
                     ClipboardManager myClipboard;
                     myClipboard = (ClipboardManager) act.getSystemService(Context.CLIPBOARD_SERVICE);
@@ -109,7 +115,7 @@ public class ResultHashFragment extends Fragment {
             TextView hashType = (TextView)convertView.findViewById(R.id.hashType);
             final TextView hashValue = (TextView)convertView.findViewById(R.id.hashValue);
             ImageView shareBtn = (ImageView)convertView.findViewById(R.id.shareBtn);
-            final String [] hashValueArray = {MD5Hash, SHA1Hash};
+         //   final String [] hashValueArray = {MD5Hash, SHA1Hash};
             shareBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -140,7 +146,7 @@ public class ResultHashFragment extends Fragment {
 
     public List<hashItems> getDataForListView()
     {
-        String [] hashValueArray = {MD5Hash, SHA1Hash};
+     //   String [] hashValueArray = {MD5Hash, SHA1Hash};
         List<hashItems> hashList = new ArrayList<hashItems>();
 
         for(int i=0;i<2;i++)
