@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -106,14 +107,19 @@ public class ResultHashFragment extends Fragment {
             }
 
             TextView hashType = (TextView)convertView.findViewById(R.id.hashType);
-            TextView hashValue = (TextView)convertView.findViewById(R.id.hashValue);
+            final TextView hashValue = (TextView)convertView.findViewById(R.id.hashValue);
             ImageView shareBtn = (ImageView)convertView.findViewById(R.id.shareBtn);
-
+            final String [] hashValueArray = {MD5Hash, SHA1Hash};
             shareBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     v.startAnimation(AnimationUtils.loadAnimation(act.getApplicationContext(), R.anim.imgview_animation));
-                    Toast.makeText(act.getApplicationContext(), "XDDXD " + position, Toast.LENGTH_SHORT).show();
+                    String share = String.format("%s : %s", hashTypeArray[position], hashValueArray[position]);
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, share);
+                    sendIntent.setType("text/plain");
+                    startActivity(sendIntent);
                 }
             });
 
