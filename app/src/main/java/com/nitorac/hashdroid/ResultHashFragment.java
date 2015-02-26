@@ -6,9 +6,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.content.ClipboardManager;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +42,6 @@ public class ResultHashFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_results_encrypt_hash, container, false);
         input = MainActivity.userInput;
-        Log.i("TEST", input);
 
         MD5Hash = HashCrypts.cryptMD5(input);
         SHA1Hash = HashCrypts.cryptSHA1(input);
@@ -73,23 +69,7 @@ public class ResultHashFragment extends Fragment {
                 myClipboard.setPrimaryClip(myClip);
             }
         });
-
-      //  MD5Hash = MD5.crypt(input);
-        Log.i("MD5", MD5Hash);
-
-        // SHA1Hash = SHA1.crypt(input);
-     //   Log.i("SHA1", SHA1Hash);
-
-
         return rootView;
-    }
-
-    @Override
-    public void onResume()
-    {
-        super.onResume();
-        Log.i("test", "JE VIEN T4EMMERDER !!!");
-        input = MainActivity.userInput;
     }
 
     public class HashAdapter extends BaseAdapter {
