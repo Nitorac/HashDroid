@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nitorac.hashdroid.libs.HashCrypts;
+import com.nitorac.hashdroid.libs.RIPEMD160Helper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +34,17 @@ public class ResultHashFragment extends Fragment {
         String hashValue;
     }
 
-    public String[] hashTypeArray = {"MD5","SHA-1","SHA-224"};
-    String [] hashValueArrayTemp = new String [3];
+    int itemCount = 6;
+    public String[] hashTypeArray = {"MD5","SHA-1","SHA-256","SHA-384","SHA-512","RIPEMD-160"};
+    String [] hashValueArrayTemp = new String [itemCount];
     String [] hashValueArray;
 
     public static String MD5Hash;
     public static String SHA1Hash;
-    public static String SHA224Hash;
+    public static String SHA256Hash;
+    public static String SHA384Hash;
+    public static String SHA512Hash;
+    public static String RIPEMD160Hash;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,12 +52,14 @@ public class ResultHashFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_results_encrypt_hash, container, false);
 
         input = MainActivity.userInput;
-
-        MD5Hash = HashCrypts.cryptMD5(input);
-        SHA1Hash = HashCrypts.cryptSHA1(input);
-        SHA224Hash = HashCrypts.cryptSHA224(input);
-
-        hashValueArrayTemp = new String[]{MD5Hash, SHA1Hash, SHA224Hash};
+        hashValueArrayTemp = new String[]{
+                MD5Hash = HashCrypts.cryptMD5(input),
+                SHA1Hash = HashCrypts.cryptSHA1(input),
+                SHA256Hash = HashCrypts.cryptSHA256(input),
+                SHA384Hash = HashCrypts.cryptSHA384(input),
+                SHA512Hash = HashCrypts.cryptSHA512(input),
+                RIPEMD160Hash = RIPEMD160Helper.cryptRIPEMD160(input)
+        };
         hashValueArray = hashValueArrayTemp;
 
         hashListAdapter = new HashAdapter();
@@ -149,7 +156,7 @@ public class ResultHashFragment extends Fragment {
      //   String [] hashValueArray = {MD5Hash, SHA1Hash};
         List<hashItems> hashList = new ArrayList<hashItems>();
 
-        for(int i=0;i<2;i++)
+        for(int i=0;i<itemCount;i++)
         {
 
             hashItems hashItem = new hashItems();

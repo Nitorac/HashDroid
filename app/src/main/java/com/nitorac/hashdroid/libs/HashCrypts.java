@@ -28,17 +28,17 @@ public class HashCrypts {
     }
     /****************Byte to Hex convert****************/
     private static String convertToHex(byte[] data) {
-        StringBuffer buf = new StringBuffer();
-        for (int i = 0; i < data.length; i++) {
-            int halfbyte = (data[i] >>> 4) & 0x0F;
+        StringBuilder buf = new StringBuilder();
+        for (byte aData : data) {
+            int halfbyte = (aData >>> 4) & 0x0F;
             int two_halfs = 0;
             do {
                 if ((0 <= halfbyte) && (halfbyte <= 9))
                     buf.append((char) ('0' + halfbyte));
                 else
                     buf.append((char) ('a' + (halfbyte - 10)));
-                halfbyte = data[i] & 0x0F;
-            } while(two_halfs++ < 1);
+                halfbyte = aData & 0x0F;
+            } while (two_halfs++ < 1);
         }
         return buf.toString();
     }
@@ -48,7 +48,7 @@ public class HashCrypts {
             throws NoSuchAlgorithmException, UnsupportedEncodingException {
         MessageDigest md;
         md = MessageDigest.getInstance("SHA-1");
-        byte[] sha1hash = new byte[40];
+        byte[] sha1hash;
         md.update(text.getBytes("iso-8859-1"), 0, text.length());
         sha1hash = md.digest();
         return convertToHex(sha1hash);
@@ -57,7 +57,7 @@ public class HashCrypts {
     /****************SHA1 public method (handle exceptions)****************/
     public static String cryptSHA1(String text)
     {
-        String returnText = "";
+        String returnText;
         try{
             returnText = SHA1(text);
         } catch (Exception e)
@@ -69,23 +69,23 @@ public class HashCrypts {
         return returnText;
     }
 
-    /****************Base method SHA1****************/
-    private static String SHA224(String text)
+    /****************Base method SHA256****************/
+    private static String SHA256(String text)
             throws NoSuchAlgorithmException, UnsupportedEncodingException {
         MessageDigest md;
-        md = MessageDigest.getInstance("SHA-224");
-        byte[] sha1hash = new byte[40];
+        md = MessageDigest.getInstance("SHA-256");
+        byte[] sha256hash;
         md.update(text.getBytes("iso-8859-1"), 0, text.length());
-        sha1hash = md.digest();
-        return convertToHex(sha1hash);
+        sha256hash = md.digest();
+        return convertToHex(sha256hash);
     }
 
-    /****************SHA224 public method (handle exceptions)****************/
-    public static String cryptSHA224(String text)
+    /****************SHA256 public method (handle exceptions)****************/
+    public static String cryptSHA256(String text)
     {
-        String returnText = "";
+        String returnText;
         try{
-            returnText = SHA1(text);
+            returnText = SHA256(text);
         } catch (Exception e)
         {
             e.printStackTrace();
@@ -95,4 +95,55 @@ public class HashCrypts {
         return returnText;
     }
 
+    /****************Base method SHA384****************/
+    private static String SHA384(String text)
+            throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest md;
+        md = MessageDigest.getInstance("SHA-384");
+        byte[] sha384hash;
+        md.update(text.getBytes("iso-8859-1"), 0, text.length());
+        sha384hash = md.digest();
+        return convertToHex(sha384hash);
+    }
+
+    /****************SHA384 public method (handle exceptions)****************/
+    public static String cryptSHA384(String text)
+    {
+        String returnText;
+        try{
+            returnText = SHA384(text);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            returnText = "ERROR";
+        }
+
+        return returnText;
+    }
+
+    /****************Base method SHA512****************/
+    private static String SHA512(String text)
+            throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest md;
+        md = MessageDigest.getInstance("SHA-512");
+        byte[] sha512hash;
+        md.update(text.getBytes("iso-8859-1"), 0, text.length());
+        sha512hash = md.digest();
+        return convertToHex(sha512hash);
+    }
+
+    /****************SHA512 public method (handle exceptions)****************/
+    public static String cryptSHA512(String text)
+    {
+        String returnText;
+        try{
+            returnText = SHA512(text);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            returnText = "ERROR";
+        }
+
+        return returnText;
+    }
 }
