@@ -34,8 +34,8 @@ public class ResultHashFragment extends Fragment {
         String hashValue;
     }
 
-    int itemCount = 6;
-    public String[] hashTypeArray = {"MD5","SHA-1","SHA-256","SHA-384","SHA-512","RIPEMD-160"};
+    int itemCount = 7;
+    public String[] hashTypeArray = {"MD5","SHA-1","SHA-256","SHA-384","SHA-512","RIPEMD-160","Whirlpool"};
     String [] hashValueArrayTemp = new String [itemCount];
     String [] hashValueArray;
 
@@ -45,6 +45,7 @@ public class ResultHashFragment extends Fragment {
     public static String SHA384Hash;
     public static String SHA512Hash;
     public static String RIPEMD160Hash;
+    public static String WhirlpoolHash;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,7 +59,8 @@ public class ResultHashFragment extends Fragment {
                 SHA256Hash = HashCrypts.cryptSHA256(input),
                 SHA384Hash = HashCrypts.cryptSHA384(input),
                 SHA512Hash = HashCrypts.cryptSHA512(input),
-                RIPEMD160Hash = RIPEMD160Helper.cryptRIPEMD160(input)
+                RIPEMD160Hash = RIPEMD160Helper.cryptRIPEMD160(input),
+                WhirlpoolHash = HashCrypts.cryptWhirlpool(input)
         };
         hashValueArray = hashValueArrayTemp;
 
