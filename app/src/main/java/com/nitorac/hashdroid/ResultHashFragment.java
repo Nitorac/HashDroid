@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.nitorac.hashdroid.libs.HashCrypts;
@@ -62,7 +61,7 @@ public class ResultHashFragment extends Fragment {
                 String [] hashValueArray = {MD5Hash, SHA1Hash};
 
                 ClipboardManager myClipboard;
-                myClipboard = (ClipboardManager)act.getSystemService(act.CLIPBOARD_SERVICE);
+                myClipboard = (ClipboardManager)act.getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData myClip;
                 String text = hashValueArray[position];
                 myClip = ClipData.newPlainText("text", text);
@@ -109,7 +108,6 @@ public class ResultHashFragment extends Fragment {
             shareBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    RelativeLayout rl = (RelativeLayout)v.getParent();
                     v.startAnimation(AnimationUtils.loadAnimation(act.getApplicationContext(), R.anim.imgview_animation));
                     Toast.makeText(act.getApplicationContext(), "XDDXD " + position, Toast.LENGTH_SHORT).show();
                 }
