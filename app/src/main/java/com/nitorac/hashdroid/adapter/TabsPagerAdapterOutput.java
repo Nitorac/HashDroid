@@ -2,6 +2,7 @@ package com.nitorac.hashdroid.adapter;
 
 import com.nitorac.hashdroid.EncryptFragment;
 import com.nitorac.hashdroid.DecryptFragment;
+import com.nitorac.hashdroid.ResultCRCFragment;
 import com.nitorac.hashdroid.ResultHashFragment;
 
 import android.app.ListFragment;
@@ -22,7 +23,7 @@ public class TabsPagerAdapterOutput extends FragmentPagerAdapter {
             case 0:
                 return new ResultHashFragment();
             case 1:
-                return new DecryptFragment();
+                return new ResultCRCFragment();
         }
 
         return null;

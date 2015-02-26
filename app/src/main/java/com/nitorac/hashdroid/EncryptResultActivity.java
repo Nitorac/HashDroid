@@ -25,8 +25,8 @@ public class EncryptResultActivity extends FragmentActivity implements ActionBar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         String hash_result = getString(R.string.RTab1Hash);
-        String decrypt = getString(R.string.Tab2Decrypt);
-        String[] tabs = {hash_result, decrypt};
+        String crc_result = getString(R.string.RTab2CRC);
+        String[] tabs = {hash_result, crc_result};
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
