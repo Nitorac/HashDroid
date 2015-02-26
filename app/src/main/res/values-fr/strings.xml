@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HashDroid</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="Tab1Crypt">Encoder</string>
+    <string name="Tab2Decrypt">Décoder</string>
+    <string name="encryptButton">Encoder</string>
+    <string name="encryptHint">Entrez votre texte ...</string>
+    <string name="title_activity_result">Résultats</string>
+    <string name="RTab1Hash">Hash</string>
+    <string name="RTab2CRC">CRC</string>
+    <string name="Tab3Settings">Paramètres</string>
+    <string name="SLanguage">Langue</string>
+    <string name="SCredits">Crédits</string>
+    <string name="french">Français</string>
+    <string name="english">Anglais</string>
+    <string name="listViewSelTit">Séléctionnez votre langue :</string>
+    <string name="cancel_button">Annuler</string>
+    <string name="subLanguage">La langue actuelle est : </string>
+    <string name="credits_web">Cliquer pour accéder à la page de l\'appli sur Internet</string>
+    <string name="connect_message">Vous n\'êtes pas connecté à Internet</string>
+    <string name="help_action">En savoir plus sur les différents cryptage</string>
+    <string name="ClickTap">Astuce : Appuyez sur le texte pour le copier !</string>
+    <string name="title_activity_encryption_help">En savoir plus sur le codage</string>
+    <string name="emptyText">Votre texte ne peut être vide</string>
+</resources>

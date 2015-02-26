@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HashDroid</string>
+    <string name="action_settings">Settings</string>
+    <string name="Tab1Crypt">Encrypt</string>
+    <string name="Tab2Decrypt">Decrypt</string>
+    <string name="encryptButton">Encrypt</string>
+    <string name="encryptHint">Type your message ...</string>
+    <string name="title_activity_result">Results</string>
+    <string name="RTab1Hash">Hash</string>
+    <string name="RTab2CRC">CRC</string>
+    <string name="Tab3Settings">Settings</string>
+    <string name="SLanguage">Language</string>
+    <string name="SCredits">Credits</string>
+    <string name="french">French</string>
+    <string name="english">English</string>
+    <string name="listViewSelTit">Select your language :</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="subLanguage">The current language is :</string>
+    <string name="creditsCopy" translatable="false">Copyright © 2015 - Nitorac</string>
+    <string name="credits_web">Tap to visit the app page on the Internet</string>
+    <string name="connect_message">You aren\'t connected to the Internet</string>
+    <string name="help_action">Learn more about the different encryption</string>
+    <string name="title_activity_encryption_help">More about encryption</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="ClickTap">Hint : Tap on text to copy it !</string>
+    <string name="emptyText">Your message cannot be empty</string>
+
+</resources>
