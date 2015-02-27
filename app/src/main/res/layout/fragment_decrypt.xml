@@ -14,31 +14,45 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:inputType="text" />
+        android:inputType="text"
+        android:hint="@string/editTextInputDecrypt" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/selEncryptionBtn"
         android:id="@+id/encryptionSel"
-        android:layout_below="@+id/inputDecrypt"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:onClick="encryptionSpinnerView"
+        android:layout_below="@+id/pwdInput"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp"
-        android:onClick="encryptionSpinnerView" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="60dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Tab2Decrypt"
         android:id="@+id/decryptBtn"
-        android:layout_centerVertical="true"
+        android:onClick="decryptStringBtn"
+        android:layout_below="@+id/encryptionSel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="decryptStringBtn" />
+        android:layout_marginTop="30dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pwdInput"
+        android:layout_below="@+id/inputDecrypt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:hint="@string/typePwdDecrypt" />
 
 </RelativeLayout>

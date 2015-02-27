@@ -9,7 +9,6 @@
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
@@ -35,9 +34,9 @@
         </activity>
         <activity
             android:name=".EncryptResultActivity"
-            android:noHistory="true"
             android:configChanges="locale|orientation"
             android:label="@string/title_activity_result"
+            android:noHistory="true"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -46,6 +45,14 @@
         <activity
             android:name=".EncryptionHelp"
             android:label="@string/title_activity_encryption_help" >
+        </activity>
+        <activity
+            android:name=".ResultDecryptActivity"
+            android:label="@string/title_activity_result_decrypt"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitorac.hashdroid.MainActivity" />
         </activity>
     </application>
 

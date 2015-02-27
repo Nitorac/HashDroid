@@ -103,10 +103,5 @@ public class EncryptResultActivity extends FragmentActivity implements ActionBar
     protected void onDestroy()
     {
         super.onDestroy();
-/*        for (int i=0; i < ResultHashFragment.hashValueLenght; i++)
-        {
-            ResultHashFragment.hashValueArray[i] = null;
-            Log.i("test", String.valueOf(i));
-        }*/
     }
 }

@@ -29,7 +29,13 @@
     <string name="clip">copied !</string>
     <string name="pwdOpt">Password (optionnal)</string>
     <string name="RTab3Cipher">Cipher</string>
-    <string name="selEncryptionBtn">Select your encryption ...</string>
+    <string name="selEncryptionBtn">Select your encryption</string>
     <string name="encryptionTxtBtn">Encryption :</string>
+    <string name="editTextInputDecrypt">Type your crypted message ...</string>
+    <string name="typePwdDecrypt">Type the password ...</string>
+    <string name="textEmpty">Your message cannot be empty !</string>
+    <string name="pwdEmpty">You must type a password !</string>
+    <string name="title_activity_result_decrypt">Decryption results</string>
+    <string name="badPwd">Bad password or encryption !</string>
 
 </resources>

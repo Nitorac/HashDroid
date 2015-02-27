@@ -26,6 +26,12 @@
     <string name="clip">copié !</string>
     <string name="pwdOpt">Mot de passe (optionnel)</string>
     <string name="RTab3Cipher">Cipher</string>
-    <string name="selEncryptionBtn">Sélectionnez votre codage</string>
-    <string name="encryptionTxtBtn">Codage :</string>
+    <string name="selEncryptionBtn">Sélectionnez votre encodage</string>
+    <string name="encryptionTxtBtn">Encodage :</string>
+    <string name="editTextInputDecrypt">Entrez votre texte crypté ...</string>
+    <string name="typePwdDecrypt">Entrez le mot de passe ...</string>
+    <string name="textEmpty">Votre texte ne peut pas être vide !</string>
+    <string name="pwdEmpty">Vous devez entrer un mot de passe !</string>
+    <string name="title_activity_result_decrypt">Résultat du décodage</string>
+    <string name="badPwd">Mauvais mot de passe ou encodage !</string>
 </resources>

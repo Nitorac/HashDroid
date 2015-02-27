@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.nitorac.hashdroid.adapter.TabsPagerAdapterInput;
+import com.nitorac.hashdroid.libs.CipherCrypts;
 
 import java.util.Locale;
 
@@ -64,6 +65,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         String decrypt = getString(R.string.Tab2Decrypt);
         String settings = getString(R.string.Tab3Settings);
         String[] tabs = {encrypt, decrypt, settings};
+
+        selectedEncryption = "OOPS";
 
 		// Adding Tabs
 		for (String tab_name : tabs) {
@@ -140,7 +143,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         final AlertDialog.Builder builderSingle = new AlertDialog.Builder(MainActivity.this);
         builderSingle.setIcon(R.drawable.ic_launcher);
-        builderSingle.setTitle(getString(R.string.listViewSelTit));
+        builderSingle.setTitle(getString(R.string.selEncryptionBtn));
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 MainActivity.this,
                 android.R.layout.select_dialog_singlechoice);
@@ -167,16 +170,19 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                         {
                             encryptionBtn.setText(getString(R.string.encryptionTxtBtn) + " AES-256");
                             selectedEncryption = "AES256";
+                            ResultDecryptActivity.decryptType = "AES-256";
                         }
                         else if (which == 1)
                         {
                             encryptionBtn.setText(getString(R.string.encryptionTxtBtn) + " DES");
                             selectedEncryption = "DES";
+                            ResultDecryptActivity.decryptType = "DES";
                         }
                         else if (which == 2)
                         {
                             encryptionBtn.setText(getString(R.string.encryptionTxtBtn) + " BlowFish");
                             selectedEncryption = "BlowFish";
+                            ResultDecryptActivity.decryptType = "BlowFish";
                         }
                     }
                 });
@@ -185,7 +191,30 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     public void decryptStringBtn(View view)
     {
+
+        EditText inputString = (EditText) findViewById(R.id.inputDecrypt);
+        EditText inputPassword = (EditText) findViewById(R.id.pwdInput);
+        String StrToDecrypt = inputString.getText().toString();
+        String PwdToDecrypt = inputPassword.getText().toString();
+
+        if(StrToDecrypt.isEmpty()){
+            Toast.makeText(MainActivity.this, getString(R.string.textEmpty),Toast.LENGTH_SHORT).show();
+        }
+        else if(PwdToDecrypt.isEmpty()){
+            Toast.makeText(MainActivity.this, getString(R.string.pwdEmpty),Toast.LENGTH_SHORT).show();
+        }
         Log.i("Encryption", selectedEncryption);
+        if(selectedEncryption.equals("AES256")) {
+                try{
+                   ResultDecryptActivity.decryptValue = CipherCrypts.cryptdecrypt(StrToDecrypt, PwdToDecrypt, false, "PBEWITHSHA-256AND256BITAES-CBC-BC");
+                    Intent intent = new Intent(this, ResultDecryptActivity.class);
+                    startActivity(intent);
+                }catch(Exception e){
+                    Toast.makeText(MainActivity.this, getString(R.string.badPwd),Toast.LENGTH_LONG).show();
+                }
+        } else{
+            Toast.makeText(MainActivity.this, getString(R.string.selEncryptionBtn),Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void hashString(View view)
