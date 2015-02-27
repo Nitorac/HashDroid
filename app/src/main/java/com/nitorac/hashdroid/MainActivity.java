@@ -15,11 +15,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -37,6 +39,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     public static String userInput;
     public static String pwd;
+    public static String selectedEncryption = "OOPS";
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +134,58 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                     }
                 });
         builderSingle.show();
+    }
+
+    public void encryptionSpinnerView(View v) {
+
+        final AlertDialog.Builder builderSingle = new AlertDialog.Builder(MainActivity.this);
+        builderSingle.setIcon(R.drawable.ic_launcher);
+        builderSingle.setTitle(getString(R.string.listViewSelTit));
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                MainActivity.this,
+                android.R.layout.select_dialog_singlechoice);
+        arrayAdapter.add("AES-256");
+        arrayAdapter.add("DES");
+        arrayAdapter.add("BlowFish");
+        builderSingle.setNegativeButton(getString(R.string.cancel_button),
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        builderSingle.setAdapter(arrayAdapter,
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        Button encryptionBtn = (Button) findViewById(R.id.encryptionSel);
+                        if (which == 0)
+                        {
+                            encryptionBtn.setText(getString(R.string.encryptionTxtBtn) + " AES-256");
+                            selectedEncryption = "AES256";
+                        }
+                        else if (which == 1)
+                        {
+                            encryptionBtn.setText(getString(R.string.encryptionTxtBtn) + " DES");
+                            selectedEncryption = "DES";
+                        }
+                        else if (which == 2)
+                        {
+                            encryptionBtn.setText(getString(R.string.encryptionTxtBtn) + " BlowFish");
+                            selectedEncryption = "BlowFish";
+                        }
+                    }
+                });
+        builderSingle.show();
+    }
+
+    public void decryptStringBtn(View view)
+    {
+        Log.i("Encryption", selectedEncryption);
     }
 
     public void hashString(View view)

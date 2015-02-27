@@ -23,18 +23,21 @@ public final class R {
         public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000b;
-        public static final int encryptButton=0x7f090002;
-        public static final int hashType=0x7f090006;
-        public static final int hashValue=0x7f090007;
-        public static final int help_action=0x7f090009;
-        public static final int hintTap=0x7f090004;
-        public static final int inputString=0x7f090001;
-        public static final int listView1=0x7f090005;
-        public static final int main_menu_bef_14=0x7f09000a;
+        public static final int action_settings=0x7f09000e;
+        public static final int decryptBtn=0x7f090003;
+        public static final int encryptButton=0x7f090005;
+        public static final int encryptionSel=0x7f090002;
+        public static final int hashType=0x7f090009;
+        public static final int hashValue=0x7f09000a;
+        public static final int help_action=0x7f09000c;
+        public static final int hintTap=0x7f090007;
+        public static final int inputDecrypt=0x7f090001;
+        public static final int inputString=0x7f090004;
+        public static final int listView1=0x7f090008;
+        public static final int main_menu_bef_14=0x7f09000d;
         public static final int pager=0x7f090000;
-        public static final int pwdText=0x7f090003;
-        public static final int shareBtn=0x7f090008;
+        public static final int pwdText=0x7f090006;
+        public static final int shareBtn=0x7f09000b;
     }
     public static final class layout {
         public static final int activity_encryption_help=0x7f030000;
@@ -44,8 +47,9 @@ public final class R {
         public static final int fragment_encrypt=0x7f030004;
         public static final int fragment_results_encrypt=0x7f030005;
         public static final int fragment_settings=0x7f030006;
-        public static final int item_result_encrypt_crc=0x7f030007;
-        public static final int item_result_encrypt_hash=0x7f030008;
+        public static final int item_result_encrypt_cipher=0x7f030007;
+        public static final int item_result_encrypt_crc=0x7f030008;
+        public static final int item_result_encrypt_hash=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -72,15 +76,17 @@ public final class R {
         public static final int emptyText=0x7f060010;
         public static final int encryptButton=0x7f060011;
         public static final int encryptHint=0x7f060012;
-        public static final int english=0x7f060013;
-        public static final int french=0x7f060014;
-        public static final int hello_world=0x7f060015;
-        public static final int help_action=0x7f060016;
-        public static final int listViewSelTit=0x7f060017;
-        public static final int pwdOpt=0x7f060018;
-        public static final int subLanguage=0x7f060019;
-        public static final int title_activity_encryption_help=0x7f06001a;
-        public static final int title_activity_result=0x7f06001b;
+        public static final int encryptionTxtBtn=0x7f060013;
+        public static final int english=0x7f060014;
+        public static final int french=0x7f060015;
+        public static final int hello_world=0x7f060016;
+        public static final int help_action=0x7f060017;
+        public static final int listViewSelTit=0x7f060018;
+        public static final int pwdOpt=0x7f060019;
+        public static final int selEncryptionBtn=0x7f06001a;
+        public static final int subLanguage=0x7f06001b;
+        public static final int title_activity_encryption_help=0x7f06001c;
+        public static final int title_activity_result=0x7f06001d;
     }
     public static final class style {
         /** 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="70dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/hashType"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="74dp"
+        android:layout_height="36dp"
+        android:text="New Text"
+        android:id="@+id/hashValue"
+        android:gravity="center_vertical"
+        android:singleLine="false"
+        android:ellipsize="marquee"
+        android:layout_below="@+id/hashType"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/shareBtn"
+        android:layout_toStartOf="@+id/shareBtn"
+        android:layout_alignParentBottom="true" />
+
+    <ImageView
+        android:focusable="false"
+        android:layout_width="57dp"
+        android:layout_height="match_parent"
+        android:id="@+id/shareBtn"
+        android:gravity="center_vertical"
+        android:src="@drawable/ic_action_share"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:clickable="true"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_alignBottom="@+id/hashValue" />
+
+
+</RelativeLayout>

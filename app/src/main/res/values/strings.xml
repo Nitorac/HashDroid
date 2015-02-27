@@ -29,5 +29,7 @@
     <string name="clip">copied !</string>
     <string name="pwdOpt">Password (optionnal)</string>
     <string name="RTab3Cipher">Cipher</string>
+    <string name="selEncryptionBtn">Select your encryption ...</string>
+    <string name="encryptionTxtBtn">Encryption :</string>
 
 </resources>

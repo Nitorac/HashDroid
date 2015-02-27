@@ -18,7 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nitorac.hashdroid.libs.CRCCrypts;
+import com.nitorac.hashdroid.libs.CipherCrypts;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,21 +31,21 @@ public class ResultCipherFragment extends Fragment {
     HashAdapter hashListAdapter;
     Activity act;
     static String input;
+    static String pwd = MainActivity.pwd;
 
     public class hashItems {
         String hashType;
         String hashValue;
     }
 
-    int itemCount = 4;
-    public String[] hashTypeArray = {"CRC-8","CRC-16","FCS-16","CRC-32 / FCS-32"};
+    int itemCount = 3;
+    public String[] hashTypeArray = {"AES 256","DES","BlowFish"};
     String [] hashValueArrayTemp = new String [itemCount];
     String [] hashValueArray;
 
-    public static String CRC8;
-    public static String CRC16;
-    public static String FCS16;
-    public static String CRC32;
+    public static String AES256;
+    public static String DES;
+    public static String BlowF;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,10 +54,9 @@ public class ResultCipherFragment extends Fragment {
 
         input = MainActivity.userInput;
         hashValueArrayTemp = new String[]{
-                CRC8 = CRCCrypts.cryptCRC8(input),
-                CRC16 = CRCCrypts.cryptCRC16(input),
-                FCS16 = CRCCrypts.cryptFCS16(input),
-                CRC32 = CRCCrypts.cryptCRC32(input)
+                AES256 = CipherCrypts.cryptdecrypt(input, pwd, true, "PBEWITHSHA-256AND256BITAES-CBC-BC"),
+                DES = CipherCrypts.cryptdecrypt(input, pwd, true, "PBEWITHSHA1ANDDES"),
+                BlowF = CipherCrypts.cryptdecryptBlowFish(input, pwd, true)
         };
         hashValueArray = hashValueArrayTemp;
 
@@ -114,7 +113,7 @@ public class ResultCipherFragment extends Fragment {
             if(convertView==null)
             {
                 LayoutInflater inflater = (LayoutInflater) act.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.item_result_encrypt_crc, parent,false);
+                convertView = inflater.inflate(R.layout.item_result_encrypt_cipher, parent,false);
             }
 
             TextView hashType = (TextView)convertView.findViewById(R.id.hashType);
@@ -130,9 +129,13 @@ public class ResultCipherFragment extends Fragment {
                     sendIntent.setAction(Intent.ACTION_SEND);
                     sendIntent.putExtra(Intent.EXTRA_TEXT, share);
                     sendIntent.setType("text/plain");
-                    startActivity(sendIntent);
+                    startActivityForResult(Intent.createChooser(sendIntent, "Share via"),1);
+                    getFragmentManager().popBackStack();
+
                 }
             });
+
+
 
             hashItems hashTypeItem = hashList.get(position);
 
@@ -148,6 +151,12 @@ public class ResultCipherFragment extends Fragment {
         }
 
     }
+
+/*    @Override
+    public void onBackPressed() {
+        super.
+    }*/
+
 
     public List<hashItems> getDataForListView()
     {

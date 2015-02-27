@@ -2,11 +2,39 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Nitorac\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jar="C:\Users\Nitorac\Desktop\HashDroidApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="C:\Users\Nitorac\Desktop\HashDroidApp\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-ea3b980b95dc8582bb48d6655a915294089de57c.jar" />
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Nitorac\Desktop\HashDroidApp\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-11b6d1ab25d76f3b632e5533177a948f4bdce616.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nitorac\Desktop\HashDroidApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\Nitorac\Desktop\HashDroidApp\app\build\intermediates\pre-dexed\debug\classes-d02b44a8895ae3bfaf23111dd5fc3a82273357e9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nitorac\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\Nitorac\Desktop\HashDroidApp\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-fe43c10043ae47d0e021aa242c4eb3882bd9ab40.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nitorac\Desktop\HashDroidApp\app\libs\bcprov-ext-jdk15on-151.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6d8993dbd808cb3e6258e7cb41fea47c47b626da">
+        <dex dex="C:\Users\Nitorac\Desktop\HashDroidApp\app\build\intermediates\pre-dexed\debug\bcprov-ext-jdk15on-151-8861be2072a4dfd4f38e5be8b0e04207f9a1aab5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nitorac\Desktop\HashDroidApp\app\libs\jasypt-1.9.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="91eee489a389faba9fc57bfee75c87c615c19cd7">
+        <dex dex="C:\Users\Nitorac\Desktop\HashDroidApp\app\build\intermediates\pre-dexed\debug\jasypt-1.9.2-19349ccb52d8e943af409d21eed00e8a3a0f321a.jar" />
     </item>
 
 </items>

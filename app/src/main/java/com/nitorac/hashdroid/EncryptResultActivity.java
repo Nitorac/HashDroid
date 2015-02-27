@@ -67,6 +67,7 @@ public class EncryptResultActivity extends FragmentActivity implements ActionBar
         super.onPause();
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         int currentApiVersion = Build.VERSION.SDK_INT;

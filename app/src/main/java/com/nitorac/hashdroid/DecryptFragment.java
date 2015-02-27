@@ -16,5 +16,4 @@ public class DecryptFragment extends Fragment {
 
 		return rootView;
 	}
-
 }

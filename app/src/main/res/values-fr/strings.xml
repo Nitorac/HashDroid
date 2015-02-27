@@ -26,4 +26,6 @@
     <string name="clip">copié !</string>
     <string name="pwdOpt">Mot de passe (optionnel)</string>
     <string name="RTab3Cipher">Cipher</string>
+    <string name="selEncryptionBtn">Sélectionnez votre codage</string>
+    <string name="encryptionTxtBtn">Codage :</string>
 </resources>
