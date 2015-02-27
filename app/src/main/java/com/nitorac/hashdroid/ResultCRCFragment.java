@@ -40,21 +40,25 @@ public class ResultCRCFragment extends Fragment {
         String hashValue;
     }
 
-    int itemCount = 1;
-    public String[] hashTypeArray = {"CRC-8","SHA-1","SHA-256","SHA-384","SHA-512","RIPEMD-160","Whirlpool"};
+    int itemCount = 3;
+    public String[] hashTypeArray = {"CRC-8","CRC-16","FCS-16"};
     String [] hashValueArrayTemp = new String [itemCount];
     String [] hashValueArray;
 
     public static String CRC8;
+    public static String CRC16;
+    public static String FCS16;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_results_encrypt_hash, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_results_encrypt, container, false);
 
         input = MainActivity.userInput;
         hashValueArrayTemp = new String[]{
-                CRC8 = CRCCrypts.cryptCRC8(input)
+                CRC8 = CRCCrypts.cryptCRC8(input),
+                CRC16 = CRCCrypts.cryptCRC16(input),
+                FCS16 = CRCCrypts.cryptFCS16(input)
         };
         hashValueArray = hashValueArrayTemp;
 
@@ -112,7 +116,7 @@ public class ResultCRCFragment extends Fragment {
             if(convertView==null)
             {
                 LayoutInflater inflater = (LayoutInflater) act.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.item_result_encrypt, parent,false);
+                convertView = inflater.inflate(R.layout.item_result_encrypt_crc, parent,false);
             }
 
             TextView hashType = (TextView)convertView.findViewById(R.id.hashType);

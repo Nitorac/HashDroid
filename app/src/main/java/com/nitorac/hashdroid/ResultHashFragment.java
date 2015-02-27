@@ -39,6 +39,7 @@ public class ResultHashFragment extends Fragment {
     String [] hashValueArrayTemp = new String [itemCount];
     String [] hashValueArray;
 
+    public static String MD4Hash;
     public static String MD5Hash;
     public static String SHA1Hash;
     public static String SHA256Hash;
@@ -50,7 +51,7 @@ public class ResultHashFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_results_encrypt_hash, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_results_encrypt, container, false);
 
         input = MainActivity.userInput;
         hashValueArrayTemp = new String[]{
@@ -118,7 +119,7 @@ public class ResultHashFragment extends Fragment {
             if(convertView==null)
             {
                 LayoutInflater inflater = (LayoutInflater) act.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.item_result_encrypt, parent,false);
+                convertView = inflater.inflate(R.layout.item_result_encrypt_hash, parent,false);
             }
 
             TextView hashType = (TextView)convertView.findViewById(R.id.hashType);

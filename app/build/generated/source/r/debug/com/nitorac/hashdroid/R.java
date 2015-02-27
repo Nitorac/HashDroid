@@ -41,9 +41,10 @@ public final class R {
         public static final int activity_result=0x7f030002;
         public static final int fragment_decrypt=0x7f030003;
         public static final int fragment_encrypt=0x7f030004;
-        public static final int fragment_results_encrypt_hash=0x7f030005;
+        public static final int fragment_results_encrypt=0x7f030005;
         public static final int fragment_settings=0x7f030006;
-        public static final int item_result_encrypt=0x7f030007;
+        public static final int item_result_encrypt_crc=0x7f030007;
+        public static final int item_result_encrypt_hash=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f080000;
