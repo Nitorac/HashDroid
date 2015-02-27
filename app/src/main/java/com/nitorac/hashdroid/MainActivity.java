@@ -36,6 +36,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public static double APPversion = 1.2;
 
     public static String userInput;
+    public static String pwd;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -136,11 +137,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     {
         Intent intent = new Intent(this, EncryptResultActivity.class);
         EditText input = (EditText) findViewById(R.id.inputString);
+        EditText password = (EditText) findViewById(R.id.pwdText);
         String stringInput = input.getText().toString();
+        String pwdInput = password.getText().toString();
         if(stringInput.isEmpty()){
             Toast.makeText(MainActivity.this, getString(R.string.emptyText), Toast.LENGTH_SHORT).show();
         }else {
             userInput = stringInput;
+            pwd = pwdInput;
             startActivity(intent);
         }
     }
