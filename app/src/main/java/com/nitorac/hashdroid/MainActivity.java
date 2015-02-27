@@ -36,7 +36,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private static final String APP_SHARED_PREFS = "com.nitorac.hashdroid";
     private SharedPreferences Langsettings;
     private SharedPreferences.Editor editor;
-    public static double APPversion = 1.0;
+    public static double APPversion = 1.2;
 
     public static String userInput;
 

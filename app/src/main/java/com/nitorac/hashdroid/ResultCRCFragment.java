@@ -27,9 +27,6 @@ import java.util.List;
  * Created by Nitorac on 26/02/2015.
  */
 
-/*
-* @TODO Find a new method for CRC8
- */
 public class ResultCRCFragment extends Fragment {
     HashAdapter hashListAdapter;
     Activity act;
@@ -40,14 +37,15 @@ public class ResultCRCFragment extends Fragment {
         String hashValue;
     }
 
-    int itemCount = 3;
-    public String[] hashTypeArray = {"CRC-8","CRC-16","FCS-16"};
+    int itemCount = 4;
+    public String[] hashTypeArray = {"CRC-8","CRC-16","FCS-16","CRC-32 / FCS-32"};
     String [] hashValueArrayTemp = new String [itemCount];
     String [] hashValueArray;
 
     public static String CRC8;
     public static String CRC16;
     public static String FCS16;
+    public static String CRC32;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,7 +56,8 @@ public class ResultCRCFragment extends Fragment {
         hashValueArrayTemp = new String[]{
                 CRC8 = CRCCrypts.cryptCRC8(input),
                 CRC16 = CRCCrypts.cryptCRC16(input),
-                FCS16 = CRCCrypts.cryptFCS16(input)
+                FCS16 = CRCCrypts.cryptFCS16(input),
+                CRC32 = CRCCrypts.cryptCRC32(input)
         };
         hashValueArray = hashValueArrayTemp;
 
@@ -72,7 +71,6 @@ public class ResultCRCFragment extends Fragment {
                                     long arg3) {
 
                 hashItems hashTypeItem = hashListAdapter.getHash(position);
-                //      String [] hashValueArray = {MD5Hash, SHA1Hash};
                 try {
                     ClipboardManager myClipboard;
                     myClipboard = (ClipboardManager) act.getSystemService(Context.CLIPBOARD_SERVICE);
@@ -153,7 +151,6 @@ public class ResultCRCFragment extends Fragment {
 
     public List<hashItems> getDataForListView()
     {
-        //   String [] hashValueArray = {MD5Hash, SHA1Hash};
         List<hashItems> hashList = new ArrayList<hashItems>();
 
         for(int i=0;i<itemCount;i++)
