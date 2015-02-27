@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.nitorac.hashdroid.ResultCRCFragment;
+import com.nitorac.hashdroid.ResultCipherFragment;
 import com.nitorac.hashdroid.ResultHashFragment;
 
 public class TabsPagerAdapterOutput extends FragmentPagerAdapter {
@@ -21,6 +22,8 @@ public class TabsPagerAdapterOutput extends FragmentPagerAdapter {
                 return new ResultHashFragment();
             case 1:
                 return new ResultCRCFragment();
+            case 2:
+                return new ResultCipherFragment();
         }
 
         return null;
@@ -28,7 +31,7 @@ public class TabsPagerAdapterOutput extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
 }

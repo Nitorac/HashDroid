@@ -24,7 +24,6 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f09000b;
-        public static final int pwdText =0x7f090003;
         public static final int encryptButton=0x7f090002;
         public static final int hashType=0x7f090006;
         public static final int hashValue=0x7f090007;
@@ -34,6 +33,7 @@ public final class R {
         public static final int listView1=0x7f090005;
         public static final int main_menu_bef_14=0x7f09000a;
         public static final int pager=0x7f090000;
+        public static final int pwdText=0x7f090003;
         public static final int shareBtn=0x7f090008;
     }
     public static final class layout {
@@ -56,30 +56,31 @@ public final class R {
         public static final int ClickTap=0x7f060000;
         public static final int RTab1Hash=0x7f060001;
         public static final int RTab2CRC=0x7f060002;
-        public static final int SCredits=0x7f060003;
-        public static final int SLanguage=0x7f060004;
-        public static final int Tab1Crypt=0x7f060005;
-        public static final int Tab2Decrypt=0x7f060006;
-        public static final int Tab3Settings=0x7f060007;
-        public static final int action_settings=0x7f060008;
-        public static final int app_name=0x7f060009;
-        public static final int cancel_button=0x7f06000a;
-        public static final int clip=0x7f06000b;
-        public static final int connect_message=0x7f06000c;
-        public static final int creditsCopy=0x7f06000d;
-        public static final int credits_web=0x7f06000e;
-        public static final int emptyText=0x7f06000f;
-        public static final int encryptButton=0x7f060010;
-        public static final int encryptHint=0x7f060011;
-        public static final int english=0x7f060012;
-        public static final int french=0x7f060013;
-        public static final int hello_world=0x7f060014;
-        public static final int help_action=0x7f060015;
-        public static final int listViewSelTit=0x7f060016;
-        public static final int pwdOpt=0x7f060017;
-        public static final int subLanguage=0x7f060018;
-        public static final int title_activity_encryption_help=0x7f060019;
-        public static final int title_activity_result=0x7f06001a;
+        public static final int RTab3Cipher=0x7f060003;
+        public static final int SCredits=0x7f060004;
+        public static final int SLanguage=0x7f060005;
+        public static final int Tab1Crypt=0x7f060006;
+        public static final int Tab2Decrypt=0x7f060007;
+        public static final int Tab3Settings=0x7f060008;
+        public static final int action_settings=0x7f060009;
+        public static final int app_name=0x7f06000a;
+        public static final int cancel_button=0x7f06000b;
+        public static final int clip=0x7f06000c;
+        public static final int connect_message=0x7f06000d;
+        public static final int creditsCopy=0x7f06000e;
+        public static final int credits_web=0x7f06000f;
+        public static final int emptyText=0x7f060010;
+        public static final int encryptButton=0x7f060011;
+        public static final int encryptHint=0x7f060012;
+        public static final int english=0x7f060013;
+        public static final int french=0x7f060014;
+        public static final int hello_world=0x7f060015;
+        public static final int help_action=0x7f060016;
+        public static final int listViewSelTit=0x7f060017;
+        public static final int pwdOpt=0x7f060018;
+        public static final int subLanguage=0x7f060019;
+        public static final int title_activity_encryption_help=0x7f06001a;
+        public static final int title_activity_result=0x7f06001b;
     }
     public static final class style {
         /** 
