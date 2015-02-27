@@ -1,25 +1,21 @@
 package com.nitorac.hashdroid;
 
 import android.app.ActionBar;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.nitorac.hashdroid.ResultHashFragment.*;
 import com.nitorac.hashdroid.adapter.TabsPagerAdapterOutput;
 
 
 public class EncryptResultActivity extends FragmentActivity implements ActionBar.TabListener {
 
     private ViewPager viewPager;
-    private TabsPagerAdapterOutput mAdapter;
     private ActionBar actionBar;
 
     @Override
@@ -33,7 +29,7 @@ public class EncryptResultActivity extends FragmentActivity implements ActionBar
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         actionBar = getActionBar();
-        mAdapter = new TabsPagerAdapterOutput(getSupportFragmentManager());
+        TabsPagerAdapterOutput mAdapter = new TabsPagerAdapterOutput(getSupportFragmentManager());
 
         viewPager.setAdapter(mAdapter);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

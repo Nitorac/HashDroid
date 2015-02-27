@@ -39,7 +39,6 @@ public class ResultHashFragment extends Fragment {
     String [] hashValueArrayTemp = new String [itemCount];
     String [] hashValueArray;
 
-    public static String MD4Hash;
     public static String MD5Hash;
     public static String SHA1Hash;
     public static String SHA256Hash;

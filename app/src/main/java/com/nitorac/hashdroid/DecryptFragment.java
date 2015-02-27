@@ -13,7 +13,7 @@ public class DecryptFragment extends Fragment {
 			Bundle savedInstanceState) {
 
 		View rootView = inflater.inflate(R.layout.fragment_decrypt, container, false);
-		
+
 		return rootView;
 	}
 

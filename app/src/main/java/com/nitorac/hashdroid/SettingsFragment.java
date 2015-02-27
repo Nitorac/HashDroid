@@ -89,7 +89,7 @@ public class SettingsFragment extends ListFragment {
             ((MainActivity)getActivity()).langSpinnerView();
         }
         else if (position == 1){
-                if(((MainActivity)getActivity()).haveNetworkConnection() == true) {
+                if(((MainActivity) getActivity()).haveNetworkConnection()) {
                     String url = "http://nitorac.url.ph/404";
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     startActivity(browserIntent);

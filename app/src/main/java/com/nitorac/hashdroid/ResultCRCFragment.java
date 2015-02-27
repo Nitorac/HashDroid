@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Nitorac on 26/02/2015.
+ * Created by Nitorac.
  */
 
 public class ResultCRCFragment extends Fragment {

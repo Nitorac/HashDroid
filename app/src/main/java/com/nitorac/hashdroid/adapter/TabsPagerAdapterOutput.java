@@ -1,14 +1,11 @@
 package com.nitorac.hashdroid.adapter;
 
-import com.nitorac.hashdroid.EncryptFragment;
-import com.nitorac.hashdroid.DecryptFragment;
-import com.nitorac.hashdroid.ResultCRCFragment;
-import com.nitorac.hashdroid.ResultHashFragment;
-
-import android.app.ListFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.nitorac.hashdroid.ResultCRCFragment;
+import com.nitorac.hashdroid.ResultHashFragment;
 
 public class TabsPagerAdapterOutput extends FragmentPagerAdapter {
 

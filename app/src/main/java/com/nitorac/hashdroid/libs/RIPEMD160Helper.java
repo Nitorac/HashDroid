@@ -1,7 +1,7 @@
 package com.nitorac.hashdroid.libs;
 
 /**
- * Created by Nitorac on 26/02/2015.
+ * Created by Nitorac.
  */
 /****************Base method RIPEMD160*****************/
 

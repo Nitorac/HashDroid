@@ -15,7 +15,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,10 +30,8 @@ import java.util.Locale;
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
 	private ViewPager viewPager;
-	private TabsPagerAdapterInput mAdapter;
-	private ActionBar actionBar;
+    private ActionBar actionBar;
     private static final String APP_SHARED_PREFS = "com.nitorac.hashdroid";
-    private SharedPreferences Langsettings;
     private SharedPreferences.Editor editor;
     public static double APPversion = 1.2;
 
@@ -44,9 +41,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-        Langsettings = getSharedPreferences(APP_SHARED_PREFS, Activity.MODE_PRIVATE);
-        editor = Langsettings.edit();
-        Locale locale = new Locale(Langsettings.getString("lang", Locale.getDefault().getLanguage()));
+        SharedPreferences langsettings = getSharedPreferences(APP_SHARED_PREFS, Activity.MODE_PRIVATE);
+        editor = langsettings.edit();
+        Locale locale = new Locale(langsettings.getString("lang", Locale.getDefault().getLanguage()));
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.locale = locale;
@@ -54,7 +51,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		setContentView(R.layout.activity_main);
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getActionBar();
-		mAdapter = new TabsPagerAdapterInput(getSupportFragmentManager());
+        TabsPagerAdapterInput mAdapter = new TabsPagerAdapterInput(getSupportFragmentManager());
 
 		viewPager.setAdapter(mAdapter);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

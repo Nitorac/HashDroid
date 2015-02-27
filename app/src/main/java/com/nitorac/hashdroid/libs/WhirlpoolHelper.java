@@ -3,7 +3,7 @@ package com.nitorac.hashdroid.libs;
 import java.util.Arrays;
 
 /**
- * Created by Nitorac on 26/02/2015.
+ * Created by Nitorac.
  */
 public class WhirlpoolHelper {
 

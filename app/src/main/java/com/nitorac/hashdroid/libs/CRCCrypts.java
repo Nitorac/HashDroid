@@ -1,7 +1,7 @@
 package com.nitorac.hashdroid.libs;
 
 /**
- * Created by Nitorac on 26/02/2015.
+ * Created by Nitorac.
  */
 public class CRCCrypts {
         static char [] Crc8Tab = {0x00,0x1B,0x36,0x2D,0x6C,0x77,0x5A,0x41,0xD8,0xC3,0xEE,0xF5,0xB4,0xAF,0x82,0x99,0xD3,0xC8,0xE5,
@@ -145,7 +145,7 @@ public class CRCCrypts {
         fcs=0xFFFF;
         for (int i=0; i<len; i++)
         {
-            fcs = FCS16Add(fcs,str.codePointAt(i));
+            fcs = FCS16Add(fcs, str.codePointAt(i));
         }
         return fcs^0xFFFF;
     }
@@ -158,9 +158,9 @@ public class CRCCrypts {
         crc=0xFFFFFFFF;
         for (int i=0; i<len; i++)
         {
-            crc=CRC32Add(crc,str.codePointAt(i));
+            crc=CRC32Add(crc, str.codePointAt(i));
         }
-        return crc^0xFFFFFFFF;
+        return ~crc;
     }
 
     public static String Hex8(int val){
