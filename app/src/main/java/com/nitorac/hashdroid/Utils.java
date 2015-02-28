@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 
 public class Utils
 {
-    private static int sTheme;
+    public static int sTheme;
 
     public final static int THEME_LIGHT = 0;
     public final static int THEME_DARK = 1;

@@ -41,5 +41,6 @@
     <string name="darkTheme">Dark Theme</string>
     <string name="lightTheme">Light Theme</string>
     <string name="alreadyLang">You\'re already in this language !</string>
+    <string name="alreadyTheme">You\'re already in this theme !</string>
 
 </resources>

@@ -172,9 +172,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (which == 0) {
-                            Utils.changeToTheme(MainActivity.this, Utils.THEME_LIGHT);
+                            if(Utils.sTheme == Utils.THEME_LIGHT){
+                                Toast.makeText(MainActivity.this, getString(R.string.alreadyTheme), Toast.LENGTH_SHORT).show();
+                            } else {
+                                Utils.changeToTheme(MainActivity.this, Utils.THEME_LIGHT);
+                            }
                         } else if (which == 1) {
-                            Utils.changeToTheme(MainActivity.this, Utils.THEME_DARK);
+                            if(Utils.sTheme == Utils.THEME_DARK){
+                                Toast.makeText(MainActivity.this, getString(R.string.alreadyTheme), Toast.LENGTH_SHORT).show();
+                            }else{
+                                Utils.changeToTheme(MainActivity.this, Utils.THEME_DARK);
+                            }
                         }
                     }
                 });
