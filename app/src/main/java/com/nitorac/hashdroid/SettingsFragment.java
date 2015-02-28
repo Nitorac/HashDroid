@@ -61,6 +61,11 @@ public class SettingsFragment extends ListFragment {
 
             Map<String, String> map = new HashMap<String, String>();
             items.clear();
+            map = new HashMap<String, String>();
+            map.put("line1", "Theme");
+            map.put("line2", "Le thème est :");
+            items.add(map);
+            map = new HashMap<String, String>();
             map.put("line1", language);
             map.put("line2", subLanguage + " " + displayLang);
             items.add(map);
@@ -84,11 +89,15 @@ public class SettingsFragment extends ListFragment {
     @Override
     public void onListItemClick (ListView l, View v, int position, long id)
     {
-        if (position == 0){
+        if (position == 0)
+        {
+            ((MainActivity)getActivity()).themeSpinnerView();
+        }
+        else if (position == 1){
            // Access to MainActivity objects : ((MainActivity)getActivity())
             ((MainActivity)getActivity()).langSpinnerView();
         }
-        else if (position == 1){
+        else if (position == 2){
                 if(((MainActivity) getActivity()).haveNetworkConnection()) {
                     String url = "http://nitorac.url.ph/404";
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));

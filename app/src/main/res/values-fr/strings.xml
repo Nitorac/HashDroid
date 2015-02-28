@@ -34,4 +34,8 @@
     <string name="pwdEmpty">Vous devez entrer un mot de passe !</string>
     <string name="title_activity_result_decrypt">Résultat du décodage</string>
     <string name="badPwd">Mauvais mot de passe ou encodage !</string>
+    <string name="chooseTheme">Choisissez votre thème</string>
+    <string name="darkTheme">Thème Sombre</string>
+    <string name="lightTheme">Thème Clair</string>
+    <string name="alreadyLang">Vous êtes déjà dans cette langue !</string>
 </resources>

@@ -128,10 +128,53 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        String currentLang = getResources().getConfiguration().locale.toString();
                         if (which == 0) {
-                            restartInLanguage("fr");
+                            if(currentLang.equals("fr")) {
+                                Toast.makeText(MainActivity.this, getString(R.string.alreadyLang), Toast.LENGTH_SHORT).show();
+                            }else{
+                                restartInLanguage("fr");
+                            }
                         } else if (which == 1) {
-                            restartInLanguage("en");
+                            if(currentLang.equals("en")) {
+                                Toast.makeText(MainActivity.this, getString(R.string.alreadyLang), Toast.LENGTH_SHORT).show();
+                            }else{
+                                restartInLanguage("en");
+                            }
+                        }
+                    }
+                });
+        builderSingle.show();
+    }
+
+    public void themeSpinnerView() {
+
+        final AlertDialog.Builder builderSingle = new AlertDialog.Builder(MainActivity.this);
+        builderSingle.setIcon(R.drawable.ic_launcher);
+        builderSingle.setTitle(getString(R.string.chooseTheme));
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                MainActivity.this,
+                android.R.layout.select_dialog_singlechoice);
+        arrayAdapter.add(getString(R.string.lightTheme));
+        arrayAdapter.add(getString(R.string.darkTheme));
+        builderSingle.setNegativeButton(getString(R.string.cancel_button),
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        builderSingle.setAdapter(arrayAdapter,
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0) {
+                            Utils.changeToTheme(MainActivity.this, Utils.THEME_LIGHT);
+                        } else if (which == 1) {
+                            Utils.changeToTheme(MainActivity.this, Utils.THEME_DARK);
                         }
                     }
                 });
