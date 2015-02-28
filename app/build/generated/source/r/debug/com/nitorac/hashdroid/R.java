@@ -105,7 +105,10 @@ public final class R {
         public static final int subLanguage=0x7f060024;
         public static final int textEmpty=0x7f060025;
         public static final int theme=0x7f060026;
-
+        public static final int title_activity_encryption_help=0x7f060027;
+        public static final int title_activity_result=0x7f060028;
+        public static final int title_activity_result_decrypt=0x7f060029;
+        public static final int typePwdDecrypt=0x7f06002a;
     }
     public static final class style {
         public static final int AppTheme=0x7f070000;
