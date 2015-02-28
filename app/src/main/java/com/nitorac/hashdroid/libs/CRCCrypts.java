@@ -157,9 +157,7 @@ public class CRCCrypts {
 
         crc=0xFFFFFFFF;
         for (int i=0; i<len; i++)
-        {
-            crc=CRC32Add(crc, str.codePointAt(i));
-        }
+            crc = CRC32Add(crc, str.codePointAt(i));
         return ~crc;
     }
 

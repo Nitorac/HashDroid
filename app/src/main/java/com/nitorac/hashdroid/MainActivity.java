@@ -308,7 +308,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public boolean onCreateOptionsMenu(Menu menu) {
         int currentApiVersion = Build.VERSION.SDK_INT;
         if (currentApiVersion >= android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            getMenuInflater().inflate(R.menu.main, menu);
+            if(Utils.sTheme == Utils.THEME_LIGHT){
+                getMenuInflater().inflate(R.menu.main_light, menu);
+            }else if(Utils.sTheme == Utils.THEME_DARK){
+                getMenuInflater().inflate(R.menu.main_dark, menu);
+            }
         } else {
             getMenuInflater().inflate(R.menu.main_before_api14, menu);
         }

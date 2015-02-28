@@ -15,23 +15,21 @@ import javax.crypto.spec.SecretKeySpec;
  */
 public class CipherCrypts {
 
+    @SuppressWarnings("deprecation")
     public static String cryptdecrypt(String text, String pwd, boolean crypt, String algorithm) {
         StandardPBEStringEncryptor myFirstEncryptor = new StandardPBEStringEncryptor();
         myFirstEncryptor.setProvider(new BouncyCastleProvider());
 
         myFirstEncryptor.setAlgorithm(algorithm);
-
         FixedStringSaltGenerator generator = new FixedStringSaltGenerator();
         generator.setSalt("NitoracCodedThisApp!");
 
         myFirstEncryptor.setSaltGenerator(generator);
 
         myFirstEncryptor.setKeyObtentionIterations(1);
-        String myPassword = pwd;
-        myFirstEncryptor.setPassword(myPassword);
+        myFirstEncryptor.setPassword(pwd);
 
-        String myText = text;
-        String myFirstEncryptedText = myFirstEncryptor.encrypt(myText);
+        String myFirstEncryptedText = myFirstEncryptor.encrypt(text);
 
         if (crypt) {
             return myFirstEncryptedText;
@@ -91,11 +89,11 @@ public class CipherCrypts {
 
         String str = "";
 
-        for (int i = 0; i < data.length; i++) {
-            if ((data[i] & 0xFF) < 16)
-                str = str + "0" + java.lang.Integer.toHexString(data[i] & 0xFF);
+        for (byte aData : data) {
+            if ((aData & 0xFF) < 16)
+                str = str + "0" + Integer.toHexString(aData & 0xFF);
             else
-                str = str + java.lang.Integer.toHexString(data[i] & 0xFF);
+                str = str + Integer.toHexString(aData & 0xFF);
         }
 
         return str;

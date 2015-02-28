@@ -4,7 +4,6 @@
         android:id="@+id/main_menu_bef_14"
         android:title="@string/help_action"
         android:onClick="helpClick">
-
         </item>
 
 </menu>

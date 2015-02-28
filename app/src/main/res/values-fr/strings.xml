@@ -39,4 +39,6 @@
     <string name="lightTheme">Thème Clair</string>
     <string name="alreadyLang">Vous êtes déjà dans cette langue !</string>
     <string name="alreadyTheme">Vous êtes déjà dans ce thème !</string>
+    <string name="theme">Thème</string>
+    <string name="currentThemeTxt">Le thème actuel est :</string>
 </resources>

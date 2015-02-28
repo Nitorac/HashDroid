@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class SettingsFragment extends ListFragment {
 
     private static final List<Map<String,String>> items =
@@ -43,6 +44,8 @@ public class SettingsFragment extends ListFragment {
         String copyCredits = getString(R.string.creditsCopy);
         String version = String.valueOf(MainActivity.APPversion);
         String creditsWeb = getString(R.string.credits_web);
+        String theme = getString(R.string.theme);
+        String currentThemeTxt = getString(R.string.currentThemeTxt);
 
         String currentLang = getResources().getConfiguration().locale.toString();
         String displayLang;
@@ -58,12 +61,20 @@ public class SettingsFragment extends ListFragment {
         {
             displayLang = "ERROR";
         }
+        String currentTheme;
+        if(Utils.sTheme == Utils.THEME_DARK){
+            currentTheme = getString(R.string.darkTheme);
+        } else if(Utils.sTheme == Utils.THEME_LIGHT){
+            currentTheme = getString(R.string.lightTheme);
+        }else{
+            currentTheme = "ERROR";
+        }
 
-            Map<String, String> map = new HashMap<String, String>();
+            Map<String, String> map;
             items.clear();
             map = new HashMap<String, String>();
-            map.put("line1", "Theme");
-            map.put("line2", "Le thème est :");
+            map.put("line1", theme);
+            map.put("line2", currentThemeTxt + " " + currentTheme);
             items.add(map);
             map = new HashMap<String, String>();
             map.put("line1", language);

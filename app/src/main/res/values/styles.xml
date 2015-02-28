@@ -2,8 +2,9 @@
 
     <!-- Application theme. -->
     <!-- light theme -->
-    <style name="AppTheme" parent="@android:style/Theme.Holo.Light"/>
+    <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
 
+    </style>
     <!-- dark theme -->
     <style name="AppTheme.Dark" parent="@android:style/Theme.Holo"/>
 

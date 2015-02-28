@@ -42,5 +42,7 @@
     <string name="lightTheme">Light Theme</string>
     <string name="alreadyLang">You\'re already in this language !</string>
     <string name="alreadyTheme">You\'re already in this theme !</string>
+    <string name="theme">Theme</string>
+    <string name="currentThemeTxt">The current theme is :</string>
 
 </resources>
