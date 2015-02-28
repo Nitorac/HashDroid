@@ -31,7 +31,7 @@ public class ResultCipherFragment extends Fragment {
     HashAdapter hashListAdapter;
     Activity act;
     static String input;
-    static String pwd = MainActivity.pwd;
+    static String pwd;
 
     public class hashItems {
         String hashType;
@@ -50,17 +50,16 @@ public class ResultCipherFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_results_encrypt, container, false);
-
         input = MainActivity.userInput;
+        pwd = MainActivity.pwd;
         hashValueArrayTemp = new String[]{
                 AES256 = CipherCrypts.cryptdecrypt(input, pwd, true, "PBEWITHSHA-256AND256BITAES-CBC-BC"),
                 DES = CipherCrypts.cryptdecrypt(input, pwd, true, "PBEWITHSHA1ANDDES"),
                 BlowF = CipherCrypts.cryptdecryptBlowFish(input, pwd, true)
         };
         hashValueArray = hashValueArrayTemp;
-
         hashListAdapter = new HashAdapter();
+        View rootView = inflater.inflate(R.layout.fragment_results_encrypt, container, false);
         ListView hash = (ListView)rootView.findViewById(R.id.listView1);
         hash.setFocusable(false);
         hash.setAdapter(hashListAdapter);
