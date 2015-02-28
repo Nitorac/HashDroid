@@ -36,7 +36,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private ActionBar actionBar;
     private static final String APP_SHARED_PREFS = "com.nitorac.hashdroid";
     private SharedPreferences.Editor editor;
-    public static double APPversion = 1.2;
+    //Change app version in Manifest
+    public static String APPversion = BuildConfig.VERSION_NAME;
 
     public static String userInput;
     public static String pwd;
@@ -223,12 +224,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                             encryptionBtn.setText(getString(R.string.encryptionTxtBtn) + " DES");
                             selectedEncryption = "DES";
                             ResultDecryptActivity.decryptType = "DES";
-                            Utils.changeToTheme(MainActivity.this, Utils.THEME_LIGHT);
                         } else if (which == 2) {
                             encryptionBtn.setText(getString(R.string.encryptionTxtBtn) + " BlowFish");
                             selectedEncryption = "BlowFish";
                             ResultDecryptActivity.decryptType = "BlowFish";
-                            Utils.changeToTheme(MainActivity.this, Utils.THEME_DARK);
                         }
                     }
                 });
@@ -248,35 +247,24 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             Toast.makeText(MainActivity.this, getString(R.string.pwdEmpty), Toast.LENGTH_SHORT).show();
         }
         Log.i("Encryption", selectedEncryption);
+        String valToDecrypt = "Fail";
         if (selectedEncryption.equals("AES256")) {
-            try {
-                Intent intent = new Intent(this, ResultDecryptActivity.class);
-                startActivity(intent);
-                ResultDecryptActivity.decryptValue = CipherCrypts.cryptdecrypt(StrToDecrypt, PwdToDecrypt, false, "PBEWITHSHA-256AND256BITAES-CBC-BC");
-            } catch (Exception e) {
-                Toast.makeText(MainActivity.this, getString(R.string.badPwd), Toast.LENGTH_LONG).show();
-            }
-
+            valToDecrypt = CipherCrypts.cryptdecrypt(StrToDecrypt, PwdToDecrypt, false, "PBEWITHSHA-256AND256BITAES-CBC-BC");
         } else if (selectedEncryption.equals("DES")) {
-            try {
-                ResultDecryptActivity.decryptValue = CipherCrypts.cryptdecrypt(StrToDecrypt, PwdToDecrypt, false, "PBEWITHSHA1ANDDES");
-                Intent intent = new Intent(this, ResultDecryptActivity.class);
-                startActivity(intent);
-            } catch (Exception e) {
-                Toast.makeText(MainActivity.this, getString(R.string.badPwd), Toast.LENGTH_LONG).show();
-            }
-            }else if (selectedEncryption.equals("BlowFish")) {
-            try {
-                ResultDecryptActivity.decryptValue = CipherCrypts.cryptdecryptBlowFish(StrToDecrypt, PwdToDecrypt, false);
-                Intent intent = new Intent(this, ResultDecryptActivity.class);
-                startActivity(intent);
-            } catch (Exception e) {
-                Toast.makeText(MainActivity.this, getString(R.string.badPwd), Toast.LENGTH_LONG).show();
-            }
-         }else{
-                Toast.makeText(MainActivity.this, getString(R.string.selEncryptionBtn), Toast.LENGTH_SHORT).show();
-            }
+            valToDecrypt = CipherCrypts.cryptdecrypt(StrToDecrypt, PwdToDecrypt, false, "PBEWITHSHA1ANDDES");
+        } else if (selectedEncryption.equals("BlowFish")) {
+            valToDecrypt = CipherCrypts.cryptdecryptBlowFish(StrToDecrypt, PwdToDecrypt, false);
+        } else {
+            Toast.makeText(MainActivity.this, getString(R.string.selEncryptionBtn), Toast.LENGTH_SHORT).show();
         }
+        if(valToDecrypt.equals("Fail")){
+            Toast.makeText(MainActivity.this, getString(R.string.badPwd), Toast.LENGTH_SHORT).show();
+        }else{
+            ResultDecryptActivity.decryptValue = valToDecrypt;
+            Intent intent = new Intent(this, ResultDecryptActivity.class);
+            startActivity(intent);
+        }
+    }
 
     public void hashString(View view) {
         Intent intent = new Intent(this, EncryptResultActivity.class);

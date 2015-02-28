@@ -16,7 +16,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class CipherCrypts {
 
     @SuppressWarnings("deprecation")
-    public static String cryptdecrypt(String text, String pwd, boolean crypt, String algorithm) {
+    public static String cryptdecrypt(String text, String pwd, boolean crypt, String algorithm){
         StandardPBEStringEncryptor myFirstEncryptor = new StandardPBEStringEncryptor();
         myFirstEncryptor.setProvider(new BouncyCastleProvider());
 
@@ -37,7 +37,7 @@ public class CipherCrypts {
             try {
                 return myFirstEncryptor.decrypt(text);
             } catch (Exception e) {
-                return null;
+                return "Fail";
             }
         }
     }

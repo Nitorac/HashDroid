@@ -22,7 +22,8 @@ public final class R {
         public static final int ic_action_help=0x7f020001;
         public static final int ic_action_help_light=0x7f020002;
         public static final int ic_action_share=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
+        public static final int ic_action_share_light=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
     }
     public static final class id {
         public static final int action_settings=0x7f090013;
@@ -56,8 +57,11 @@ public final class R {
         public static final int fragment_results_encrypt=0x7f030006;
         public static final int fragment_settings=0x7f030007;
         public static final int item_result_encrypt_cipher=0x7f030008;
-        public static final int item_result_encrypt_crc=0x7f030009;
-        public static final int item_result_encrypt_hash=0x7f03000a;
+        public static final int item_result_encrypt_cipher_light=0x7f030009;
+        public static final int item_result_encrypt_crc=0x7f03000a;
+        public static final int item_result_encrypt_crc_light=0x7f03000b;
+        public static final int item_result_encrypt_hash=0x7f03000c;
+        public static final int item_result_encrypt_hash_light=0x7f03000d;
     }
     public static final class menu {
         public static final int main_before_api14=0x7f080000;
@@ -95,20 +99,19 @@ public final class R {
         public static final int encryptionTxtBtn=0x7f06001a;
         public static final int english=0x7f06001b;
         public static final int french=0x7f06001c;
-        public static final int hello_world=0x7f06001d;
-        public static final int help_action=0x7f06001e;
-        public static final int lightTheme=0x7f06001f;
-        public static final int listViewSelTit=0x7f060020;
-        public static final int pwdEmpty=0x7f060021;
-        public static final int pwdOpt=0x7f060022;
-        public static final int selEncryptionBtn=0x7f060023;
-        public static final int subLanguage=0x7f060024;
-        public static final int textEmpty=0x7f060025;
-        public static final int theme=0x7f060026;
-        public static final int title_activity_encryption_help=0x7f060027;
-        public static final int title_activity_result=0x7f060028;
-        public static final int title_activity_result_decrypt=0x7f060029;
-        public static final int typePwdDecrypt=0x7f06002a;
+        public static final int help_action=0x7f06001d;
+        public static final int lightTheme=0x7f06001e;
+        public static final int listViewSelTit=0x7f06001f;
+        public static final int pwdEmpty=0x7f060020;
+        public static final int pwdOpt=0x7f060021;
+        public static final int selEncryptionBtn=0x7f060022;
+        public static final int subLanguage=0x7f060023;
+        public static final int textEmpty=0x7f060024;
+        public static final int theme=0x7f060025;
+        public static final int title_activity_encryption_help=0x7f060026;
+        public static final int title_activity_result=0x7f060027;
+        public static final int title_activity_result_decrypt=0x7f060028;
+        public static final int typePwdDecrypt=0x7f060029;
     }
     public static final class style {
         public static final int AppTheme=0x7f070000;

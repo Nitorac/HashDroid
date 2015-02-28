@@ -118,7 +118,13 @@ public class ResultHashFragment extends Fragment {
             if(convertView==null)
             {
                 LayoutInflater inflater = (LayoutInflater) act.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.item_result_encrypt_hash, parent,false);
+                if(Utils.sTheme == Utils.THEME_DARK) {
+                    convertView = inflater.inflate(R.layout.item_result_encrypt_hash_light, parent, false);
+                }else if(Utils.sTheme == Utils.THEME_LIGHT){
+                    convertView = inflater.inflate(R.layout.item_result_encrypt_hash, parent, false);
+                }else{
+                    convertView = inflater.inflate(R.layout.item_result_encrypt_hash, parent, false);
+                }
             }
 
             TextView hashType = (TextView)convertView.findViewById(R.id.hashType);

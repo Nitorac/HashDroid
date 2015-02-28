@@ -112,7 +112,7 @@ public class ResultCipherFragment extends Fragment {
             if(convertView==null)
             {
                 LayoutInflater inflater = (LayoutInflater) act.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.item_result_encrypt_cipher, parent,false);
+                convertView = inflater.inflate(R.layout.item_result_encrypt_cipher_light, parent,false);
             }
 
             TextView hashType = (TextView)convertView.findViewById(R.id.hashType);

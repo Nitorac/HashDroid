@@ -67,7 +67,7 @@ public class SettingsFragment extends ListFragment {
         } else if(Utils.sTheme == Utils.THEME_LIGHT){
             currentTheme = getString(R.string.lightTheme);
         }else{
-            currentTheme = "ERROR";
+            currentTheme = getString(R.string.lightTheme);
         }
 
             Map<String, String> map;
