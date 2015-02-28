@@ -26,6 +26,9 @@ public class EncryptResultActivity extends FragmentActivity implements ActionBar
         String[] tabs = {hash_result, crc_result, cipher_result};
 
         super.onCreate(savedInstanceState);
+
+        Utils.onActivityCreateSetTheme(this);
+
         setContentView(R.layout.activity_result);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
@@ -62,13 +65,6 @@ public class EncryptResultActivity extends FragmentActivity implements ActionBar
     }
 
     @Override
-    public void onPause()
-    {
-        super.onPause();
-    }
-
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         int currentApiVersion = Build.VERSION.SDK_INT;
         if (currentApiVersion >= android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
@@ -97,11 +93,5 @@ public class EncryptResultActivity extends FragmentActivity implements ActionBar
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-    }
-
-    @Override
-    protected void onDestroy()
-    {
-        super.onDestroy();
     }
 }

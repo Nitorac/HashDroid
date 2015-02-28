@@ -32,7 +32,7 @@ import java.util.Locale;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
-	private ViewPager viewPager;
+    private ViewPager viewPager;
     private ActionBar actionBar;
     private static final String APP_SHARED_PREFS = "com.nitorac.hashdroid";
     private SharedPreferences.Editor editor;
@@ -43,8 +43,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public static String selectedEncryption = "OOPS";
 
     @Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Utils.onActivityCreateSetTheme(this);
 
         SharedPreferences langsettings = getSharedPreferences(APP_SHARED_PREFS, Activity.MODE_PRIVATE);
         editor = langsettings.edit();
@@ -53,13 +55,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         Configuration config = new Configuration();
         config.locale = locale;
         getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-		setContentView(R.layout.activity_main);
-		viewPager = (ViewPager) findViewById(R.id.pager);
-		actionBar = getActionBar();
+
+        setContentView(R.layout.activity_main);
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        actionBar = getActionBar();
         TabsPagerAdapterInput mAdapter = new TabsPagerAdapterInput(getSupportFragmentManager());
 
-		viewPager.setAdapter(mAdapter);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        viewPager.setAdapter(mAdapter);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         String encrypt = getString(R.string.Tab1Crypt);
         String decrypt = getString(R.string.Tab2Decrypt);
@@ -68,13 +71,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         selectedEncryption = "OOPS";
 
-		// Adding Tabs
-		for (String tab_name : tabs) {
-			actionBar.addTab(actionBar.newTab().setText(tab_name)
-					.setTabListener(this));
-		}
+        // Adding Tabs
+        for (String tab_name : tabs) {
+            actionBar.addTab(actionBar.newTab().setText(tab_name)
+                    .setTabListener(this));
+        }
 
-		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
             public void onPageSelected(int position) {
@@ -124,14 +127,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 new DialogInterface.OnClickListener() {
 
                     @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        if (which == 0)
-                        {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0) {
                             restartInLanguage("fr");
-                        }
-                        else if (which == 1)
-                        {
+                        } else if (which == 1) {
                             restartInLanguage("en");
                         }
                     }
@@ -163,70 +162,63 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 new DialogInterface.OnClickListener() {
 
                     @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
+                    public void onClick(DialogInterface dialog, int which) {
                         Button encryptionBtn = (Button) findViewById(R.id.encryptionSel);
-                        if (which == 0)
-                        {
+                        if (which == 0) {
                             encryptionBtn.setText(getString(R.string.encryptionTxtBtn) + " AES-256");
                             selectedEncryption = "AES256";
                             ResultDecryptActivity.decryptType = "AES-256";
-                        }
-                        else if (which == 1)
-                        {
+                        } else if (which == 1) {
                             encryptionBtn.setText(getString(R.string.encryptionTxtBtn) + " DES");
                             selectedEncryption = "DES";
                             ResultDecryptActivity.decryptType = "DES";
-                        }
-                        else if (which == 2)
-                        {
+                            Utils.changeToTheme(MainActivity.this, Utils.THEME_LIGHT);
+                        } else if (which == 2) {
                             encryptionBtn.setText(getString(R.string.encryptionTxtBtn) + " BlowFish");
                             selectedEncryption = "BlowFish";
                             ResultDecryptActivity.decryptType = "BlowFish";
+                            Utils.changeToTheme(MainActivity.this, Utils.THEME_DARK);
                         }
                     }
                 });
         builderSingle.show();
     }
 
-    public void decryptStringBtn(View view)
-    {
+    public void decryptStringBtn(View view) {
 
         EditText inputString = (EditText) findViewById(R.id.inputDecrypt);
         EditText inputPassword = (EditText) findViewById(R.id.pwdInput);
         String StrToDecrypt = inputString.getText().toString();
         String PwdToDecrypt = inputPassword.getText().toString();
 
-        if(StrToDecrypt.isEmpty()){
-            Toast.makeText(MainActivity.this, getString(R.string.textEmpty),Toast.LENGTH_SHORT).show();
-        }
-        else if(PwdToDecrypt.isEmpty()){
-            Toast.makeText(MainActivity.this, getString(R.string.pwdEmpty),Toast.LENGTH_SHORT).show();
+        if (StrToDecrypt.isEmpty()) {
+            Toast.makeText(MainActivity.this, getString(R.string.textEmpty), Toast.LENGTH_SHORT).show();
+        } else if (PwdToDecrypt.isEmpty()) {
+            Toast.makeText(MainActivity.this, getString(R.string.pwdEmpty), Toast.LENGTH_SHORT).show();
         }
         Log.i("Encryption", selectedEncryption);
-        if(selectedEncryption.equals("AES256")) {
-                try{
-                   ResultDecryptActivity.decryptValue = CipherCrypts.cryptdecrypt(StrToDecrypt, PwdToDecrypt, false, "PBEWITHSHA-256AND256BITAES-CBC-BC");
-                    Intent intent = new Intent(this, ResultDecryptActivity.class);
-                    startActivity(intent);
-                }catch(Exception e){
-                    Toast.makeText(MainActivity.this, getString(R.string.badPwd),Toast.LENGTH_LONG).show();
-                }
-        } else{
-            Toast.makeText(MainActivity.this, getString(R.string.selEncryptionBtn),Toast.LENGTH_SHORT).show();
+        if (selectedEncryption.equals("AES256")) {
+            try {
+                ResultDecryptActivity.decryptValue = CipherCrypts.cryptdecrypt(StrToDecrypt, PwdToDecrypt, false, "PBEWITHSHA-256AND256BITAES-CBC-BC");
+                Intent intent = new Intent(this, ResultDecryptActivity.class);
+                startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(MainActivity.this, getString(R.string.badPwd), Toast.LENGTH_LONG).show();
+            }
+        } else {
+            Toast.makeText(MainActivity.this, getString(R.string.selEncryptionBtn), Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void hashString(View view)
-    {
+    public void hashString(View view) {
         Intent intent = new Intent(this, EncryptResultActivity.class);
         EditText input = (EditText) findViewById(R.id.inputString);
         EditText password = (EditText) findViewById(R.id.pwdText);
         String stringInput = input.getText().toString();
         String pwdInput = password.getText().toString();
-        if(stringInput.isEmpty()){
+        if (stringInput.isEmpty()) {
             Toast.makeText(MainActivity.this, getString(R.string.emptyText), Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             userInput = stringInput;
             pwd = pwdInput;
             startActivity(intent);
@@ -250,11 +242,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         }
         return haveConnectedWifi || haveConnectedMobile;
     }
-    @Override
-    public void onResume() {super.onResume();}
 
     @Override
-    public void onPause(){
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
         super.onPause();
     }
 
@@ -263,7 +258,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         int currentApiVersion = Build.VERSION.SDK_INT;
         if (currentApiVersion >= android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             getMenuInflater().inflate(R.menu.main, menu);
-        }else {
+        } else {
             getMenuInflater().inflate(R.menu.main_before_api14, menu);
         }
         return true;

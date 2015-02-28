@@ -36,18 +36,19 @@
         android:id="@+id/imageButton"
         android:src="@drawable/ic_action_share"
         android:onClick="shareBtn"
-        android:layout_below="@+id/decryptValue"
-        android:layout_toLeftOf="@+id/decryptType"
-        android:layout_toStartOf="@+id/decryptType"
-        android:layout_marginTop="132dp" />
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/imageButton2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@android:dimen/app_icon_size"
         android:id="@+id/imageButton2"
         android:src="@drawable/ic_action_copy"
         android:onClick="copyMsg"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_toRightOf="@+id/decryptType"
-        android:layout_toEndOf="@+id/decryptType" />
+        android:layout_below="@+id/decryptValue"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="65dp" />
 </RelativeLayout>
