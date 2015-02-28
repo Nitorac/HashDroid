@@ -111,7 +111,7 @@ public class ResultCipherFragment extends Fragment {
 
             if(convertView==null)
             {
-                LayoutInflater inflater = (LayoutInflater) act.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                LayoutInflater inflater = (LayoutInflater) act.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.item_result_encrypt_cipher, parent,false);
             }
 
@@ -177,7 +177,7 @@ public class ResultCipherFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        act = activity;
+        act = getActivity();
     }
 
 }

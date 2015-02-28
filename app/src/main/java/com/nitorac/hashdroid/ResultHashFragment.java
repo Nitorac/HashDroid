@@ -117,7 +117,7 @@ public class ResultHashFragment extends Fragment {
 
             if(convertView==null)
             {
-                LayoutInflater inflater = (LayoutInflater) act.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                LayoutInflater inflater = (LayoutInflater) act.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.item_result_encrypt_hash, parent,false);
             }
 
@@ -174,7 +174,7 @@ public class ResultHashFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        act = activity;
+        act = getActivity();
     }
 
 }

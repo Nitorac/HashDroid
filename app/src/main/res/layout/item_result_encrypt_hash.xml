@@ -13,8 +13,7 @@
         android:textStyle="bold"
         android:textSize="18dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="@android:color/primary_text_light"/>
+        android:layout_centerHorizontal="true"/>
 
    a<TextView
         android:layout_width="74dp"
@@ -29,8 +28,7 @@
         android:layout_toLeftOf="@+id/shareBtn"
         android:layout_toStartOf="@+id/shareBtn"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/hashType"
-        android:textColor="@android:color/secondary_text_light"/>
+        android:layout_below="@+id/hashType"/>
 
     <ImageView
         android:focusable="false"
